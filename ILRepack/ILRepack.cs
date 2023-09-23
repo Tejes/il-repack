@@ -244,7 +244,7 @@ namespace ILRepacking
         {
             var assemblies = GetRepackAssemblyNames(typeof(ILRepack));
             var ilRepack = GetRepackAssemblyName(assemblies, "ILRepack", typeof(ILRepack));
-            Logger.Info($"IL Repack - Version {ilRepack.Version.ToString(3)}");
+            Logger.Info($"IL Repack - Version {ilRepack.Version!.ToString(3)}");
             Logger.Verbose($"Runtime: {typeof(ILRepack).Assembly.FullName}");
             Logger.Info(Options.ToCommandLine());
         }
