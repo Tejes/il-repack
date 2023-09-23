@@ -22,6 +22,7 @@ using System.IO;
 using System.Linq;
 using System.Resources;
 using System.Runtime.Serialization.Formatters.Binary;
+#pragma warning disable SYSLIB0011
 
 namespace ILRepacking.Steps
 {

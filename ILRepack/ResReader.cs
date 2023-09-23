@@ -6,6 +6,7 @@ using System.Resources;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+#pragma warning disable SYSLIB0011
 
 namespace ILRepacking
 {

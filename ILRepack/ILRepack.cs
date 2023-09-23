@@ -27,6 +27,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Diagnostics;
 using ILRepacking.Steps.SourceServerData;
 using Mono.Cecil.Cil;
+#pragma warning disable SYSLIB0011
 
 namespace ILRepacking
 {
