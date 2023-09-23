@@ -6,7 +6,7 @@
     <RootNamespace>ILRepacking</RootNamespace>
     <TargetFramework>net7.0</TargetFramework>
     <StartupObject>ILRepacking.Application</StartupObject>
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>publish/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -25,7 +25,7 @@
     <Product>ILRepack</Product>
     <Copyright>Copyright © Francois Valdy 2011</Copyright>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <OutputPath>bin/$(Configuration)/</OutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -49,7 +49,7 @@
     <PackageReference Include="SourceLink" Version="1.1.0" GeneratePathProperty="true" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="$(PkgSourceLink)\tools\pdbstr.exe" />
+    <EmbeddedResource Include="$(PkgSourceLink)/tools/pdbstr.exe" />
   </ItemGroup>
   <Target Name="Repack" AfterTargets="Build" DependsOnTargets="Build">
     <ItemGroup>
@@ -57,13 +57,13 @@
       <_RepackInputAssembly Include="$(TargetDir)*.dll" />
     </ItemGroup>
     <Exec
-      Command="&quot;$(TargetPath)&quot; /log /wildcards /internalize /ndebug /out:&quot;$(TargetDir)Repacked\$(TargetFilename)&quot; @(_RepackInputAssembly->'&quot;%(Identity)&quot;', ' ')"
+      Command="dotnet &quot;$(TargetPath)&quot; /log /wildcards /internalize /ndebug /out:&quot;$(TargetDir)Repacked/$(TargetFilename)&quot; @(_RepackInputAssembly->'&quot;%(Identity)&quot;', ' ')"
       WorkingDirectory="$(TargetDir)" />
-    <Exec
-      Command="&quot;$(TargetPath)&quot; /log /wildcards /internalize /target:library /keyfile:&quot;$(ProjectDir)\ILRepack.snk&quot; /out:&quot;$(TargetDir)RepackedLib\$(TargetName).dll&quot; @(_RepackInputAssembly->'&quot;%(Identity)&quot;', ' ')"
-      WorkingDirectory="$(TargetDir)" />
+<!--    <Exec-->
+<!--      Command="dotnet &quot;$(TargetPath)&quot; /log /wildcards /internalize /target:library /keyfile:&quot;$(ProjectDir)ILRepack.snk&quot; /out:&quot;$(TargetDir)RepackedLib/$(TargetName).dll&quot; @(_RepackInputAssembly->'&quot;%(Identity)&quot;', ' ')"-->
+<!--      WorkingDirectory="$(TargetDir)" />-->
 		<ItemGroup>
-			<FileWrites Include="$(TargetDir)Repacked\**" />
+			<FileWrites Include="$(TargetDir)Repacked/**" />
 		</ItemGroup>
   </Target>
 </Project>
